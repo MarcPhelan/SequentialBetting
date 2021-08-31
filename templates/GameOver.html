@@ -1,0 +1,12 @@
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+        <p> Congratulations you successfully completed the game. Your final wealth was <b>£{{current_wealth_flask}} </b></p>
+        <br>
+            <form action="/Balance" method="POST">
+                <input type="submit" value="Continue" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+            </form>
+        <br>
+    </div>
+{% endblock content%}

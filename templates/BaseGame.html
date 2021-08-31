@@ -1,0 +1,26 @@
+
+
+{% extends "Base.html" %}
+{%block javascript%}
+
+{%endblock%}
+
+{% block content %}
+    <div class="main">
+        <h1>Game Statistics</h1>
+        <p> <b>Current Capital:</b> £{{current_wealth_flask}} </p>
+        <p> <b>Current Round:</b> {{trial_flask}} </p>
+        <p> <b>Number of Heads:</b> {{heads_counter_flask}} </p>
+        <p> <b>Number of Tails:</b> {{tails_counter_flask}} </p>
+        <p> <b>Probability of heads appearing:</b> 0.6 </p>
+        <p class="mess" style="color: {{ color_code }}">{{message_flask}}</p>
+        <br>
+        {% block game%}
+
+        {% endblock game%}
+    </div>
+
+
+
+{% endblock content%}
+

@@ -1,0 +1,37 @@
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+        <form action="/Background" method="POST">
+            <h1><b> How would you describe your current household wealth? </h1></b>
+                <input type="radio" required name="wealth" id="twenty" value="twenty">
+                <label for="wealth"> £0 - £20,000 </label><br>
+                <input type="radio" name="wealth" id="hundred" value="hundred">
+                <label for="wealth"> £20,001 - £100,000 </label><br>
+                <input type="radio" name="wealth" id="quarter" value="quarter">
+                <label for="wealth"> £100,001 - £250,000 </label><br>
+                <input type="radio" name="wealth" id="half" value="half">
+                <label for="wealth"> £250,001 - £500,000 </label><br>
+                <input type="radio" name="wealth" id="mil" value="mil">
+                <label for="wealth"> £500,001 - £1million</label><br>
+                <input type="radio" name="wealth" id="more" value="more">
+                <label for="wealth"> More than £1million </label><br>
+                <input type="radio" name="wealth" id="no-answer" value="no-answer">
+                <label for="wealth"> Prefer not to say</label><br>
+
+            <h1><b> How would you describe your current yearly income before tax?</b> </h1>
+                <input type="radio" required name="wage" id="twelve" value="twelve">
+                <label for="wage"> Less than £12,500 </label><br>
+                <input type="radio" name="wage" id="fifty" value="fifty">
+                <label for="wage">  £12,501 - £50,500 </label><br>
+                <input type="radio" name="wage" id="onefifty" value="onefifty">
+                <label for="wage">  £50,501 - £150,000 </label><br>
+                <input type="radio" name="wage" id="more" value="more">
+                <label for="wage"> More than £150,000 </label><br>
+                <input type="radio" name="wage" id="no-answer" value="no-answer">
+                <label for="wage"> Prefer not to say</label><br><br>
+
+            <input type="submit" value="Submit" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+        </form>
+    </div>
+{% endblock content%}

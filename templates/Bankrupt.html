@@ -1,0 +1,12 @@
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+        <h1><b> Game Over </b></h1>
+        <p> Unfortunately you went bankrupt. Please by more mindful of your capital next time. </p>
+        <form action="/Balance">
+            <input type="submit" name="Play" value="Continue" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+        </form>
+        <br>
+    </div>
+{% endblock content%}

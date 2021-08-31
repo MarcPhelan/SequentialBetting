@@ -1,0 +1,16 @@
+
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+        <h1><b> Final Ranking </b></h1>
+        <p> So far {{ num_players_flask }} players have played this game with a current high score of
+            £{{ high_score_flask }}. As your final wealth was £{{ current_wealth_flask }} you are
+            currently ranked {{ rank_flask }}. </p>
+        <br>
+        <form action="/Balance" method="POST">
+            <input type="submit" value="Continue" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+        </form>
+        <br>
+    </div>
+{% endblock content%}

@@ -1,0 +1,77 @@
+
+{% extends "Base.html" %}
+
+
+{%block content%}
+    <div class="con">
+        <div class="slideshow-container">
+        <div class="mySlides">
+            <h2> Instructions </h2>
+            <p>This game requires you to bet on which side of a coin (heads or tails) you believe will appear next. <br><br>
+                Unlike a normal coin which has a 50% chance of landing heads and a 50% chance of landing tails, <b>the coin in this
+                game is biased to land on heads 60% of the time and on tails 40% of the time</b>. <br><br>
+                In other words, <b>the probability that the coin lands on heads is 0.6 and the probability that it
+                lands on tails is 0.4</b>. These probabilities will remain unchanged throughout the whole game. <br><br>
+                We ask you to please base your decisions on these probabilities.
+            </p>
+        </div>
+
+        <div class="mySlides">
+            <p>To begin with, we have placed £20 in an account for you to play with. Throughout this game we refer to this
+                amount as your <b>capital</b>.  <br><br>
+
+                The aim of the game is to earn as much capital as possible.
+            </p>
+        </div>
+
+        <div class="mySlides">
+            <p>
+                {{game_bet_flask}} <br><br>
+                {{rules_bet_flask}} <br><br>
+                {{rules_bet_flask1}} <br><br>
+                {{rules_bet_flask2}}
+            </p>
+        </div>
+
+        <div class="mySlides">
+            <p> {{cal_flask}} <br><br>
+            Therefore, the game is being played with 1/1 odds. This means for every £1 bet on a “winning” side, you will
+            get £2 back (£1 profit and £1 for your original bet), and for every £1 bet on a ‘losing’ side, you lose that £1.
+            </p>
+        </div>
+
+        <div class="mySlides">
+            <h2> Example </h2>
+            <p>
+                {{exp_flask}} <br><br>
+                {{exp_flask1}} <br><br>
+                {{exp_flask2}}<br><br>
+                {{exp_flask3}}
+            </p>
+        </div>
+
+        <div class="mySlides">
+            <p> {{ full_notice_flask}} <br><br>
+                This game will end in one of two ways: either you play all 60 rounds or you go bankrupt. Bankruptcy is when your
+                current capital falls below £1. <br><br>
+                Please remember <b>the probability of the coin landing heads is 0.6 and the probability of it landing
+                 tails is 0.4.</b> These probabilities will remain unchanged throughout both games.
+            </p><br><br>
+            <form action="/Game">
+                <input type="submit" value="Let's Play" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+            </form>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+{% endblock content%}

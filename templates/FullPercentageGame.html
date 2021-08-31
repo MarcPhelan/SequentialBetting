@@ -1,0 +1,122 @@
+
+{% extends "BaseGame.html" %}
+{%block javascript%}
+<script type="text/javascript" src={{url_for("static",filename="gamescript.js")}}></script>
+{%endblock%}
+{% block game %}
+    <form name="eform" action="/FullGame" onsubmit="return validate()"   method="post">
+
+        <input id="amount_bet" name="amount_bet" oninput="percentageUpdate(this.value)" placeholder="Please enter your bet" autocomplete="off"
+        onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" onkeypress="return isNumberKey(event)">
+
+        <select id="side_bet" name="side_bet"  onchange="sideUpdate(this.value, 'AutoSideBet')" autocomplete="off">
+            <option value="" disabled hidden selected>Select side </option>
+            <option value="heads">Heads</option>
+            <option value="tails">Tails</option>
+        </select>
+
+        <input  id="AutoAmountBet" name="AutoAmountBet" autocomplete="off" >
+        <select id="AutoSideBet" name="AutoSideBet">
+            <option value="" disabled hidden selected>Select side</option>
+
+        </select>
+
+        <!-- <select id="AutoSideBet" name="AutoSideBet"> -->
+
+        <input type="submit" value= "Place Bet" id="button" autocomplete="off" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1);">
+
+        <P class="re"> *Please remember that your bet is expressed as a percentage between 1% and 100%. </P>
+
+    </form>
+
+
+
+    <script type="text/javascript">
+
+        function sideUpdate(s1,s2) {
+            if(s1 == "heads"){
+                document.getElementById('AutoSideBet').value="tails";
+                var x = document.getElementById("AutoSideBet");
+                var option = document.createElement("option");
+                option.text = "Tails";
+                x.add(option,0);
+            } else if(s1 == "tails"){
+                document.getElementById('AutoSideBet').value="heads";
+                var x = document.getElementById("AutoSideBet");
+                var option = document.createElement("option");
+                option.text = "Heads";
+                x.add(option,0);
+            }
+
+        }
+
+        function betUpdate(bet){
+
+        var current_wealth = {{current_wealth_flask}};
+
+        var auto_bet = current_wealth - bet;
+
+
+        document.getElementById("AutoAmountBet").value = auto_bet;
+        }
+
+
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+            return false;
+    return true;
+     }
+
+//function to automatically update the amount bet
+function percentageUpdate(bet){
+    var auto_percentage = (100 - bet).toFixed(1);
+    document.getElementById("AutoAmountBet").value = auto_percentage;
+}
+
+
+
+
+    function validate(){
+    var bool=1;
+        if(document.eform.amount_bet.value=="")
+        {
+            document.getElementById("amount_bet").style.border = "1.1px solid #AA1E09";
+
+            bool=0;
+        }
+       if(document.eform.side_bet.value=="")
+        {
+            document.getElementById("side_bet").style.border = "1.1px solid #AA1E09";
+
+            bool=0;
+        }
+        if(document.eform.AutoAmountBet.value=="")
+        {
+            document.getElementById("AutoAmountBet").style.border = "1.1px solid #AA1E09";
+
+            bool=0;
+        }
+        if(document.eform.AutoSideBet.value=="")
+        {
+            document.getElementById("AutoSideBet").style.border = "1.1px solid #AA1E09";
+
+            bool=0;
+        }
+        if(bool==0)
+        {
+            document.getElementById("button").style.backgroundColor = "#D1D7DA";
+            document.getElementById("button").style.color = "rgba(8,53,68,0.33)";
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+
+
+
+</script>
+{% endblock game %}

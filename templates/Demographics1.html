@@ -1,0 +1,37 @@
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+        <form action="/Demographics2" method="POST">
+            <h1><b> What is the highest level of education you have received?</b> </h1>
+                <input type="radio" required name="education" id="primary" value="primary">
+                <label for="education"> Primary Level </label><br>
+                <input type="radio" name="education" id="secondary" value="secondary">
+                <label for="education"> Secondary Level</label><br>
+                <input type="radio" name="education" id="undergrad" value="undergrad">
+                <label for="education"> Undergraduate</label><br>
+                <input type="radio" name="education" id="master" value="master">
+                <label for="education"> Masters</label><br>
+                <input type="radio" name="education" id="doc" value="doc">
+                <label for="education"> Doctorial </label><br>
+                <input type="radio" name="education" id="no-answer" value="no-answer">
+                <label for="education"> Prefer not to say</label><br>
+
+            <h1><b> How would you describe your employment status?</b> </h1>
+                <input type="radio" required name="employment" id="employed" value="employed">
+                <label for="employment"> Employed </label><br>
+                <input type="radio" name="employment" id="self" value="self">
+                <label for="employment"> Self Employed </label><br>
+                <input type="radio" name="employment" id="unemploy" value="unemploy">
+                <label for="employment"> Unemployed </label><br>
+                <input type="radio" name="employment" id="retire" value="retire">
+                <label for="employment"> Retired </label><br>
+                <input type="radio" name="employment" id="student" value="student">
+                <label for="employment"> Student </label><br>
+                <input type="radio" name="employment" id="no-answer" value="no-answer">
+                <label for="employment"> Prefer not to say</label><br><br>
+
+            <input type="submit" value="Submit" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+        </form>
+    </div>
+{% endblock content%}

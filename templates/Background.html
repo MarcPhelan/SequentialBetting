@@ -1,0 +1,20 @@
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+      <h2> Background </h2>
+      <p>
+      In what follows we ask you to play two games. The games involve you betting on a simulated coinflip. <br><br>
+      You will receive £20 at the start of each game to play with. We refer to this amount as your <b>capital.</b> The aim of both games
+      is to earn as much capital as possible. <br><br>
+      One of the games requires you to bet all of your capital during each round. In this game you are free to bet on both sides
+      of the coin. In other words, you can split your capital between the two outcomes (heads and tails) in whatever way you like. <br><br>
+      The other game requires you to only bet on one side of the coin (heads or tails). In this game you are not required to bet
+      all of your capital during each round, however you are free to do so if wanted.<br><br>
+      You will play 60 rounds of each game, meaning you will play a total of 120 rounds.
+      </p>
+      <form action="/Random">
+            <input type="submit" value="Continue" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1); ">
+      </form>
+  </div>
+
+{% endblock content%}

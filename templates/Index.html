@@ -1,0 +1,13 @@
+
+{% extends "Base.html" %}
+{% block content %}
+    <div class="main">
+    	{%for messages in get_flashed_messages()%}
+    	<h1>{{messages}}</h1>
+    	{%endfor%}
+        <h1> Enter Your Prolific ID </h1>
+        <form action="/", method="post">
+            <input class="index" type="text" name="ID" required placeholder= "Enter ID" autocomplete="off">
+            <input type="submit" value="Submit" style="display: block; margin:0 auto; background-color: rgba(0, 0, 0, 0.1);">        </form>
+    </div>
+{% endblock content%}
